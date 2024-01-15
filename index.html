@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>叶姥姥的简单计算器</title>
+    <style>
+        body{
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           height: 100vh; /* 设置容器的高度为视口高度 */
+        }
+        
+        input[type=button] {
+            width: 90px;
+            height: 90px;
+            color: black;
+            font-size: 38px;
+        }
+        
+        input[type=text] {
+            width: 370px;
+            height: 60px;
+            color: blue;
+            font-size: 36px; /* 设置输入框中字体的大小 */
+        }
+         
+         h1{
+           font-size: 39px;
+           }
+         
+         p{
+           font-size: 20px;
+           
+    </style>
+</head>
+<body>
+    <center><h1>🖐️叶姥姥的计算器🖐️</h1></center>
+    <input type="text" id="display" readonly>
+    <br>
+    <input type="button" value="👆" onclick="addToDisplay('1')">
+    <input type="button" value="🤞" onclick="addToDisplay('2')">
+    <input type="button" value="👌" onclick="addToDisplay('3')">
+    <input type="button" value="➕" onclick="addToDisplay('+')">
+    <br>
+    <input type="button" value="💩" onclick="addToDisplay('4')">
+    <input type="button" value="✋" onclick="addToDisplay('5')">
+    <input type="button" value="🤙" onclick="addToDisplay('6')">
+    <input type="button" value="➖" onclick="addToDisplay('-')">
+    <br>
+    <input type="button" value="👈" onclick="addToDisplay('7')">
+    <input type="button" value="👉" onclick="addToDisplay('8')">
+    <input type="button" value="👎" onclick="addToDisplay('9')">
+    <input type="button" value="✖️" onclick="addToDisplay('*')">
+    <br>
+    <input type="button" value="🈚" onclick="clearDisplay()">
+    <input type="button" value="〇" onclick="addToDisplay('0')">
+    <input type="button" value="💡" onclick="calculateResult()">
+    <input type="button" value="➗" onclick="addToDisplay('/')">
+    <script>
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculateResult() {
+            try {
+                let result = eval(document.getElementById('display').value);
+                document.getElementById('display').value = result;
+            } catch (error) {
+                alert('输入的表达式有误，请检查后重新输入');
+            }
+        }
+    </script>
+    
+<p>
+"👆" → "1"
+ㅤㅤㅤㅤㅤㅤㅤ
+"🤞" → "2"
+<br/>
+"👌" → "3"
+ㅤㅤㅤㅤㅤㅤㅤ
+"➕" → "+"
+<br/>
+"💩" → "4"
+ㅤㅤㅤㅤㅤㅤㅤ
+"✋" → "5"
+<br/>
+"🤙" → "6"
+ㅤㅤㅤㅤㅤㅤㅤ
+"➖" → "-"
+<br/>
+"👈" → "7"
+ㅤㅤㅤㅤㅤㅤㅤ
+"👉" → "8"
+<br/>
+"👎" → "9"
+ㅤㅤㅤㅤㅤㅤㅤ
+"✖️" → "×"
+<br/>
+"🈚" → "c"
+ㅤㅤㅤㅤㅤㅤㅤ
+"〇" → "0"
+<br/>
+"💡" → "＝"
+ㅤㅤㅤㅤㅤㅤㅤ
+"➗" → "÷"
+</p>
+
+</body>
+</html>
