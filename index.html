@@ -22,43 +22,63 @@
         
         input[type=text] {
             width: 370px;
-            height: 60px;
-            color: blue;
-            font-size: 36px; /* 设置输入框中字体的大小 */
+            height: 80px;
+            color: yellow;
+			-webkit-text-stroke: 1px red;
+            font-size: 50px; /* 设置输入框中字体的大小 */
         }
          
-         h1{
+        h1{
            font-size: 39px;
            }
          
-         p{
-           font-size: 20px;
-           
+        p{
+           font-size: 16px;
+		}
+        
+		.gengxin{
+			width: 100px;
+			background-color: black;
+			font-size: 18px;
+			color: white;
+		}
+		
     </style>
 </head>
+
 <body>
     <center><h1>🖐️叶姥姥的计算器🖐️</h1></center>
     <input type="text" id="display" readonly>
     <br>
-    <input type="button" value="👆" onclick="addToDisplay('1')">
-    <input type="button" value="🤞" onclick="addToDisplay('2')">
-    <input type="button" value="👌" onclick="addToDisplay('3')">
-    <input type="button" value="➕" onclick="addToDisplay('+')">
+    <input type="button" value="1" onclick="addToDisplay('1')">
+    <input type="button" value="2" onclick="addToDisplay('2')">
+    <input type="button" value="3" onclick="addToDisplay('3')">
+	<input type="button" value="C" onclick="clearDisplay()">
+    
     <br>
-    <input type="button" value="💩" onclick="addToDisplay('4')">
-    <input type="button" value="✋" onclick="addToDisplay('5')">
-    <input type="button" value="🤙" onclick="addToDisplay('6')">
-    <input type="button" value="➖" onclick="addToDisplay('-')">
+    <input type="button" value="4" onclick="addToDisplay('4')">
+    <input type="button" value="5" onclick="addToDisplay('5')">
+    <input type="button" value="6" onclick="addToDisplay('6')">
+	<input type="button" value="=" onclick="calculateResult()">
+    
     <br>
-    <input type="button" value="👈" onclick="addToDisplay('7')">
-    <input type="button" value="👉" onclick="addToDisplay('8')">
-    <input type="button" value="👎" onclick="addToDisplay('9')">
-    <input type="button" value="✖️" onclick="addToDisplay('*')">
+    <input type="button" value="7" onclick="addToDisplay('7')">
+    <input type="button" value="8" onclick="addToDisplay('8')">
+    <input type="button" value="9" onclick="addToDisplay('9')">
+	<input type="button" value="<×" onclick="undoLastAction()">
+    
     <br>
-    <input type="button" value="🈚" onclick="clearDisplay()">
-    <input type="button" value="〇" onclick="addToDisplay('0')">
-    <input type="button" value="💡" onclick="calculateResult()">
-    <input type="button" value="➗" onclick="addToDisplay('/')">
+    <input type="button" value="." onclick="addToDisplay('.')">
+	<input type="button" value="0" onclick="addToDisplay('0')">
+	<input type="button" value="(" onclick="addToDisplay('(')">
+	<input type="button" value=")" onclick="addToDisplay(')')">
+    
+	<br />
+	<input type="button" value="+" onclick="addToDisplay('+')">
+	<input type="button" value="-" onclick="addToDisplay('-')">
+	<input type="button" value="÷" onclick="addToDisplay('/')">
+	<input type="button" value="×" onclick="addToDisplay('*')">
+	
     <script>
         function addToDisplay(value) {
             document.getElementById('display').value += value;
@@ -76,43 +96,38 @@
                 alert('输入的表达式有误，请检查后重新输入');
             }
         }
+		
+		function undoLastAction() {
+		            let display = document.getElementById('display');
+		            display.value = display.value.slice(0, -1);
+		        }
+				
     </script>
+	
+	<br />
+	<br />
+	<br />
+	<br />
     
-<p>
-"👆" → "1"
-ㅤㅤㅤㅤㅤㅤㅤ
-"🤞" → "2"
-<br/>
-"👌" → "3"
-ㅤㅤㅤㅤㅤㅤㅤ
-"➕" → "+"
-<br/>
-"💩" → "4"
-ㅤㅤㅤㅤㅤㅤㅤ
-"✋" → "5"
-<br/>
-"🤙" → "6"
-ㅤㅤㅤㅤㅤㅤㅤ
-"➖" → "-"
-<br/>
-"👈" → "7"
-ㅤㅤㅤㅤㅤㅤㅤ
-"👉" → "8"
-<br/>
-"👎" → "9"
-ㅤㅤㅤㅤㅤㅤㅤ
-"✖️" → "×"
-<br/>
-"🈚" → "c"
-ㅤㅤㅤㅤㅤㅤㅤ
-"〇" → "0"
-<br/>
-"💡" → "＝"
-ㅤㅤㅤㅤㅤㅤㅤ
-"➗" → "÷"
-<br/>
-目前不支持小数点的计算
-</p>
+	<div class="gengxin">
+		本次更新：
+	</div>
+	
+    <p>
+	•"<×"是"撤销"
+	<br />
+	•不支持百分数的运算,请自行转换为小数再计算
+	<br />
+	•更新了撤销按钮
+	<br />
+	•更新了小括号(如有中括号的计算,请用小括号代替)
+	<br />
+	•更新了小数点
+	<br />
+	•调整了各个按钮的布局
+	<br />
+	•将文本框中的数字描边
+	</p>
 
 </body>
 </html>
